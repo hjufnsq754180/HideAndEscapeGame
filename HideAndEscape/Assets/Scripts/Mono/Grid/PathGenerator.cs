@@ -52,6 +52,7 @@ public class PathGenerator : MonoBehaviour
         endTile = _gridTiles.Last();
         ColoringPathTile(endTile);
         endTile.type = TileType.Path;
+        //endTile.gameObject.AddComponent<FinishGame>();
 
         currentTile = startTile;
 
@@ -100,6 +101,7 @@ public class PathGenerator : MonoBehaviour
             currentIndex = _gridTiles.IndexOf(currentTile);
             nextIndex = currentIndex + 1;
             currentTile = _gridTiles[nextIndex];
+
         }
         else
         {

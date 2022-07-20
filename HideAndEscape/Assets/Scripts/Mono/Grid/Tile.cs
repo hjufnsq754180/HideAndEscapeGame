@@ -19,12 +19,18 @@ public class Tile : MonoBehaviour
 
     private void Awake()
     {
+        type = TileType.Empty;
         type = RandomTileType();
     }
 
     private TileType RandomTileType()
     {
         System.Random random = new System.Random();
-        return (TileType)random.Next(Enum.GetNames(typeof(TileType)).Length);
+        TileType tileType = (TileType)random.Next(Enum.GetNames(typeof(TileType)).Length);
+        if (tileType == TileType.Path || tileType == TileType.Enemy)
+        {
+            return TileType.Empty;
+        }
+        else return tileType;
     }
 }

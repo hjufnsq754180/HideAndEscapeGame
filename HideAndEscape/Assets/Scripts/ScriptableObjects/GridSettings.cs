@@ -8,4 +8,5 @@ public class GridSettings : ScriptableObject
     public int width;
     public int offset;
     public GameObject cellPref;
+    public GameObject finishArcPref;
 }

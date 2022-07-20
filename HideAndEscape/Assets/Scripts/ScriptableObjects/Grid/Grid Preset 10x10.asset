@@ -15,3 +15,4 @@ MonoBehaviour:
   width: 10
   offset: 1
   cellPref: {fileID: 4868411303067648082, guid: c16c950bb807b3e41b5b2d955725b2af, type: 3}
+  finishArcPref: {fileID: 678043823834126831, guid: db30aace05eeedc478f48dcc9ede0ebc, type: 3}

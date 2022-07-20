@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,10 @@ public class BlockGenerator : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> _blockPrefabs;
+    [SerializeField]
     private GridMap _gridMap;
+
+    public static Action OnBlockCreated;
 
     [Inject]
     private void Construct(GridMap gridMap)
@@ -31,9 +35,10 @@ public class BlockGenerator : MonoBehaviour
         {
             if (item.type == TileType.Block)
             {
-                int blockId = Random.Range(0, _blockPrefabs.Count);
+                int blockId = UnityEngine.Random.Range(0, _blockPrefabs.Count);
                 Instantiate(_blockPrefabs[blockId], item.gameObject.transform);
             }
         }
+        OnBlockCreated?.Invoke();
     }
 }
